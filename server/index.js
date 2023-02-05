@@ -8,13 +8,13 @@ const app = express()
 
 env.config()
 
+app.use(express.static("public"))
 app.use(cors())
 app.use(bodyParser.json())
 
 
 // Configure open api
 const configuration = new Configuration({
-    organization: "PASTE YOUR ORGANIZATION ID HERE",
     apiKey: process.env.API_KEY 
 })
 const openai = new OpenAIApi(configuration)
